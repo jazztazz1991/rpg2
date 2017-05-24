@@ -1,0 +1,23 @@
+/* function classes */
+.maz, .finn, .kylo, .rey{
+    width: 150px; 
+    height: 150px;
+    float: left;
+    margin: 5px;
+}
+.maz2, .finn2, .kylo2, .rey2{
+    width: 150px; 
+    height: 150px;
+    float: left;
+    margin: 5px;
+}
+.hide{
+    display: none;
+}
+
+/*html styling*/
+
+#selection, #character, #enemy, #defender{
+    clear: both;
+    overflow: auto;
+}
