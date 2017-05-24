@@ -99,7 +99,7 @@ $(".rey").on("click", function(){
 
 //Select which enemy to attack
 $("#enemy1").on("click", function(){
-    $("#def").append(characters.image2);
+    $("#def").append(characters.finn.image2);
     enemy = characters.finn;
 })
 $("#enemy2").on("click", function(){
@@ -118,7 +118,7 @@ $("#enemy4").on("click", function(){
 //fight button
 $("#btnClick").on("click", function(){
    if( character.hp >= 0 ){
-        if( enemy.hp >= 0 ){
+        if( enemy == characters.finn && enemy.hp >= 0 ){
             character.hp -= enemy.defAtk;
             enemy.hp -= character.power;
             character.power += character.atk;
@@ -126,7 +126,29 @@ $("#btnClick").on("click", function(){
             console.log("character power: " + character.power);
             console.log("enemy hp: " + enemy.hp);
             if( enemy.hp <= 0 ){
-                $("#def").remove(characters);
+                $("#def img:last-child").remove();
+            }
+        }
+       if( enemy == characters.kylo && enemy.hp >= 0 ){
+            character.hp -= enemy.defAtk;
+            enemy.hp -= character.power;
+            character.power += character.atk;
+            console.log("character HP: " + character.hp);
+            console.log("character power: " + character.power);
+            console.log("enemy hp: " + enemy.hp);
+            if( enemy.hp <= 0 ){
+                $("#def img:last-child").remove();
+            }
+        }
+       if( enemy == characters.rey && enemy.hp >= 0 ){
+            character.hp -= enemy.defAtk;
+            enemy.hp -= character.power;
+            character.power += character.atk;
+            console.log("character HP: " + character.hp);
+            console.log("character power: " + character.power);
+            console.log("enemy hp: " + enemy.hp);
+            if( enemy.hp <= 0 ){
+                $("#def img:last-child").remove();
             }
         }
    }
