@@ -62,10 +62,9 @@ characters.rey.image2.attr("src", "assets/images/rey.jpg");
 //display object images into selection
 $("#selectImage").append(characters.maz.image, characters.finn.image, characters.kylo.image, characters.rey.image);
 
-
 //selection of character if charaChosen is false
 $(".maz").on("click", function(){
-    $("#selection").addClass("hide");
+    $("#selectImage").addClass("hide");
     $("#charaChosen").append(characters.maz.image2);
     $("#enemy1").append(characters.finn.image2);
     $("#enemy2").append(characters.kylo.image2);
@@ -73,7 +72,7 @@ $(".maz").on("click", function(){
     character = characters.maz;
 })
 $(".finn").on("click", function(){
-    $("#selection").addClass("hide");
+    $("#selectImage").addClass("hide");
     $("#charaChosen").append(characters.finn.image2);
     $("#enemy4").append(characters.maz.image2);
     $("#enemy2").append(characters.kylo.image2);
@@ -81,7 +80,7 @@ $(".finn").on("click", function(){
     character = characters.finn;
 })
 $(".kylo").on("click", function(){
-    $("#selection").addClass("hide");
+    $("#selectImage").addClass("hide");
     $("#charaChosen").append(characters.kylo.image2);
     $("#enemy1").append(characters.finn.image2);
     $("#enemy4").append(characters.maz.image2);
@@ -89,7 +88,7 @@ $(".kylo").on("click", function(){
     character = characters.kylo;
 })
 $(".rey").on("click", function(){
-    $("#selection").addClass("hide");
+    $("#selectImage").addClass("hide");
     $("#charaChosen").append(characters.rey.image2);
     $("#enemy1").append(characters.finn.image2);
     $("#enemy2").append(characters.kylo.image2);
@@ -100,21 +99,28 @@ $(".rey").on("click", function(){
 //Select which enemy to attack
 $("#enemy1").on("click", function(){
     $("#def").append(characters.finn.image2);
+    document.getElementById("enemyName").innerHTML = characters.finn.name;
+    document.getElementById("enemyHp").innerHTML = characters.finn.hp;
     enemy = characters.finn;
 })
 $("#enemy2").on("click", function(){
     $("#def").append(characters.kylo.image2);
+    document.getElementById("enemyName").innerHTML = characters.kylo.name;
+    document.getElementById("enemyHp").innerHTML = characters.kylo.hp;
     enemy = characters.kylo;
 })
 $("#enemy3").on("click", function(){
     $("#def").append(characters.rey.image2);
+    document.getElementById("enemyName").innerHTML = characters.rey.name;
+    document.getElementById("enemyHp").innerHTML = characters.rey.hp;
     enemy = characters.rey;
 })
 $("#enemy4").on("click", function(){
     $("#def").append(characters.maz.image2);
+    document.getElementById("enemyName").innerHTML = characters.maz.name;
+    document.getElementById("enemyHp").innerHTML = characters.maz.hp;
     enemy = characters.maz;
 })
-
 
 //fight button
 $("#btnClick").on("click", function(){
@@ -123,9 +129,7 @@ $("#btnClick").on("click", function(){
             character.hp -= enemy.defAtk;
             enemy.hp -= character.power;
             character.power += character.atk;
-            console.log("character HP: " + character.hp);
-            console.log("character power: " + character.power);
-            console.log("enemy hp: " + enemy.hp);
+            document.getElementById("enemyHp").innerHTML = characters.maz.hp;
             if( enemy.hp <= 0 ){
                 $(".maz2").hide();
             }
@@ -134,9 +138,7 @@ $("#btnClick").on("click", function(){
             character.hp -= enemy.defAtk;
             enemy.hp -= character.power;
             character.power += character.atk;
-            console.log("character HP: " + character.hp);
-            console.log("character power: " + character.power);
-            console.log("enemy hp: " + enemy.hp);
+            document.getElementById("enemyHp").innerHTML = characters.finn.hp;
             if( enemy.hp <= 0 ){
                 $(".finn2").hide();
                 enemy = "";
@@ -146,9 +148,7 @@ $("#btnClick").on("click", function(){
             character.hp -= enemy.defAtk;
             enemy.hp -= character.power;
             character.power += character.atk;
-            console.log("character HP: " + character.hp);
-            console.log("character power: " + character.power);
-            console.log("enemy hp: " + enemy.hp);
+            document.getElementById("enemyHp").innerHTML = characters.kylo.hp;
             if( enemy.hp <= 0 ){
                 $(".kylo2").hide();
             }
@@ -157,12 +157,13 @@ $("#btnClick").on("click", function(){
             character.hp -= enemy.defAtk;
             enemy.hp -= character.power;
             character.power += character.atk;
-            console.log("character HP: " + character.hp);
-            console.log("character power: " + character.power);
-            console.log("enemy hp: " + enemy.hp);
+            document.getElementById("enemyHp").innerHTML = characters.rey.hp;
             if( enemy.hp <= 0 ){
                 $(".rey2").hide();
             }
         }
    }
+    else{
+        alert("You Lost");
+    }
 })

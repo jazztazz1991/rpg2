@@ -3,48 +3,89 @@
     <head>
         <meta charset="UTF-8">
         <title>Hangeman</title>
+        
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://bootswatch.com/slate/bootstrap.min.css">
         <link rel="stylesheet" href="assets/css/style.css">
     </head>
     
     <body>
-        <h2 id="title">Star Wars RPG</h2>
-        <div id="selection">
-            <h4>Select Your Character!</h4>
-            <div id="selectImage"></div>
+        <div class="jumbotron">
+          <h1>Star Wars RPG</h1>
+        </div>
+            
+        <div clsas="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h3 class="panel-title">Character!</h3>
+                      </div>
+                      <div class="panel-body">
+                        <div id="selectImage"></div>
+                    <p id="charaName"></p>
+                    <div id="charaChosen"></div>
+                    <p id="charaHp"></p>
+                      </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h3 class="panel-title">Enemies!</h3>
+                      </div>
+                      <div class="panel-body">
+                        <div id="enemy1"></div>
+                        <div id="enemy2"></div>
+                        <div id="enemy3"></div>
+                        <div id="enemy4"></div>
+                      </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h3 class="panel-title">Defender!</h3>
+                      </div>
+                      <div class="panel-body">
+                        <p id="enemyName"></p>
+                        <div id="def"></div>
+                        <p id="enemyHp"></p>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h3 class="panel-title">FIGHT!</h3>
+                      </div>
+                      <div class="panel-body">
+                        <button type="button" id="btnClick">Fight!</button>
+                      </div>
+                    </div>                    
+                </div>
+            </div>
         </div>
         
-        <div id="character">
-            <h4>Character!</h4>
-            <p id="charaName"></p>
-            <div id="charaChosen"></div>
-            <p id="charaHp"></p>
-        </div>
         
-        <div id="enemy">
-            <h4>Enemies!</h4>
-            <div id="enemy1"></div>
-            <div id="enemy2"></div>
-            <div id="enemy3"></div>
-            <div id="enemy4"></div>
-        </div>
         
-        <div id="fight">
-            <br><br>
-            <h4>FIGHT!</h4>
-            <button type="button" id="btnClick">Fight!</button>
-        </div>
         
-        <div id="defender">
-            <h4>Defender!</h4>
-            <p id="enemyName"></p>
-            <div id="def"></div>
-            <p id="enemyHp"></p>
-        </div>
+        
+        <!-- linking script files -->
         
         <script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/bootstrap.min.js"></script>
         <script type="text/javascript" src="assets/javascript/game.js"></script>
     </body>
 </html>
