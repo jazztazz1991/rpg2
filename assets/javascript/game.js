@@ -2,26 +2,26 @@ var characters ={
     maz: { 
         name: "Maz", 
         hp: 100, 
-        atk: 20, 
-        power: 20, 
-        defAtk: 25, 
+        atk: 10, 
+        power: 10, 
+        defAtk: 15, 
         image: $("<img>"), 
         image2: $("<img>") 
     },
     finn: { 
         name: "Finn",
         hp: 120, 
-        atk: 15, 
-        power: 15, 
-        defAtk: 20,
+        atk: 9, 
+        power: 9, 
+        defAtk: 15,
         image: $("<img>"),
         image2: $("<img>")
         },
     kylo: { 
         name: "Kylo", 
         hp: 150, 
-        atk: 10, 
-        power: 10, 
+        atk: 8, 
+        power: 8, 
         defAtk: 15,
         image: $("<img>"),
         image2: $("<img>")
@@ -29,14 +29,14 @@ var characters ={
     rey: { 
         name: "Rey", 
         hp: 200, 
-        atk: 5, 
-        power: 5, 
-        defAtk: 10,
+        atk: 7, 
+        power: 7, 
+        defAtk: 15,
         image: $("<img>"),
         image2: $("<img>")
     },
 }
-var character, enemy;
+var character, enemy = { hp: 0, defAtk: 0};
 
 // add class to object images
 characters.maz.image.addClass("maz");
@@ -104,21 +104,22 @@ $("#enemy1").on("click", function(){
 })
 $("#enemy2").on("click", function(){
     $("#def").append(characters.kylo.image2);
-    enemy = characters.finn;
+    enemy = characters.kylo;
 })
 $("#enemy3").on("click", function(){
     $("#def").append(characters.rey.image2);
-    enemy = characters.finn;
+    enemy = characters.rey;
 })
 $("#enemy4").on("click", function(){
     $("#def").append(characters.maz.image2);
-    enemy = characters.finn;
+    enemy = characters.maz;
 })
+
 
 //fight button
 $("#btnClick").on("click", function(){
    if( character.hp >= 0 ){
-        if( enemy == characters.finn && enemy.hp >= 0 ){
+       if( enemy == characters.maz && enemy.hp > 0 ){
             character.hp -= enemy.defAtk;
             enemy.hp -= character.power;
             character.power += character.atk;
@@ -126,10 +127,10 @@ $("#btnClick").on("click", function(){
             console.log("character power: " + character.power);
             console.log("enemy hp: " + enemy.hp);
             if( enemy.hp <= 0 ){
-                $("#def img:last-child").remove();
+                $(".maz2").hide();
             }
         }
-       if( enemy == characters.kylo && enemy.hp >= 0 ){
+        if( enemy == characters.finn && enemy.hp > 0 ){
             character.hp -= enemy.defAtk;
             enemy.hp -= character.power;
             character.power += character.atk;
@@ -137,10 +138,11 @@ $("#btnClick").on("click", function(){
             console.log("character power: " + character.power);
             console.log("enemy hp: " + enemy.hp);
             if( enemy.hp <= 0 ){
-                $("#def img:last-child").remove();
+                $(".finn2").hide();
+                enemy = "";
             }
         }
-       if( enemy == characters.rey && enemy.hp >= 0 ){
+       if( enemy == characters.kylo && enemy.hp > 0 ){
             character.hp -= enemy.defAtk;
             enemy.hp -= character.power;
             character.power += character.atk;
@@ -148,7 +150,18 @@ $("#btnClick").on("click", function(){
             console.log("character power: " + character.power);
             console.log("enemy hp: " + enemy.hp);
             if( enemy.hp <= 0 ){
-                $("#def img:last-child").remove();
+                $(".kylo2").hide();
+            }
+        }
+       if( enemy == characters.rey && enemy.hp > 0 ){
+            character.hp -= enemy.defAtk;
+            enemy.hp -= character.power;
+            character.power += character.atk;
+            console.log("character HP: " + character.hp);
+            console.log("character power: " + character.power);
+            console.log("enemy hp: " + enemy.hp);
+            if( enemy.hp <= 0 ){
+                $(".rey2").hide();
             }
         }
    }
